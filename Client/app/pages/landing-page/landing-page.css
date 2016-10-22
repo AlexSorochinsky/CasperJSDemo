@@ -1,0 +1,7 @@
+div.landing-page {
+
+    min-height: 100%;
+    background: url("../../../img/landing-background.jpg") #ffffff top center repeat-y;
+    background-size: 100%  auto;
+
+}

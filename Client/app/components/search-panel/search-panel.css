@@ -1,0 +1,42 @@
+div.search-panel {
+
+    padding-top: 100px;
+    text-align: center;
+
+}
+
+div.search-panel .search-input {
+
+    display: inline-block;
+    height: 45px;
+    background-color: #ffffff;
+    text-align: left;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+div.search-panel .search-input input {
+
+    border: none;
+    background-color: transparent;
+    width: calc(100% - 30px);
+    height: 100%;
+
+}
+
+div.search-panel .search-input .search-button {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    background: url("../../../img/search/zoom.png") center no-repeat;
+    background-color: #213540;
+    background-size: 50%;
+    cursor: pointer;
+
+}
+
