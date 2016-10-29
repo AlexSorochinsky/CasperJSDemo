@@ -1,86 +1,9 @@
 <div class="search-results">
 
 	<div class="rate-item"
-		 ng-repeat="item in RatesSrv.Rates | filter:filterResults | limitTo:20">
+		ng-repeat="item in RatesSrv.Rates | filter:filterResults | limitTo:20">
 
-		<div class="item-content"
-			 stl="{
-			 	height:350*scale+'px',
-				width:700*scale+'px'}
-			">
-
-			<div class="title" ng-style="{
-					'font-size':21*scale*2+'px',
-					height:70*scale+'px',
-					padding: '0 '+(20*scale)+'px'
-				}">{{item.Title}}
-			</div>
-
-			<div class="item-base">
-
-				<div class="def_rates" ng-style="{
-						height:210*scale+'px',
-						width:200*scale+'px'}"></div>
-
-				<div class="picture" ng-style="{
-								height:210*scale+'px',
-								width:300*scale+'px'}">
-
-					<div class="item-picture" ng-style="{
-								height:184*scale+'px',
-								width:184*scale+'px',
-								'border-radius': 105*scale+ 'px',
-								background: 'url({{item.Image}}) center no-repeat'}"></div>
-				</div>
-
-				<div class="prices" ng-style="{
-								height:210*scale+'px',
-								width:200*scale+'px'}">
-
-					<div class="diapazon" ng-style="{
-								width:200*scale+'px',
-								'font-size':26*scale+'px',
-								'margin-top': 55*scale+'px',
-								'margin-left': 20*scale+'px'
-								}">
-						Price
-					</div>
-
-					<div class="cost" ng-style="{
-								'font-size':26*scale+'px',
-								height:33*scale+'px',
-								width:190*scale+'px',
-								'margin-left': 20*scale+'px',
-								'margin-right': -10*scale+'px'}">{{item.Cost.substr(3)}}
-
-						<div class="triangle" ng-style="{
-								border: 5*scale+'px solid transparent',
-						 		'border-left': 5*scale+'px solid #100f12',
-						 		'border-top': 5*scale+'px  solid #100f12',
-						 		'right': 0*scale+'px',
-						 		'bottom': -10*scale+'px'}"></div>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="common-rate"
-				 ng-style="{
-					'margin-top': 20*scale+'px',
-					'width': 110*scale+'px',
-					'height': 21*scale+'px',
-					'background-size': 'auto '+21*scale+'px'
-					}">
-
-				<div class="rate" ng-style="{
-						width: (item.Rate / 5) * 100+'%',
-						'background-size': 'auto '+21*scale+'px'
-					}"></div>
-
-			</div>
-
-		</div>
+		<item-card></item-card>
 
 	</div>
 

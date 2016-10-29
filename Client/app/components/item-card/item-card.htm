@@ -1,0 +1,40 @@
+<div class="item-content" stl="height:350,width:700">
+
+	<div class="title" stl="font-size:42,height:70,padding:0 20">{{item.Title}}</div>
+
+	<div class="item-base">
+
+		<div class="picture" stl="height:210,width:300">
+
+			<div class="item-picture" stl="height:184,width:184,border-radius:105,left:61,top:1"
+				ng-style="{
+					background: 'url({{item.Image}}) center no-repeat'
+				}"></div>
+
+		</div>
+
+		<div class="prices" stl="height:210,width:200">
+
+			<div class="diapazon" stl="width:200,font-size:26,margin-top:55,margin-left:20">
+				Price
+			</div>
+
+			<div class="cost" stl="font-size:26,height:33,width:190,margin-left:20,margin-right:-10">{{item.Cost.substr(3)}}
+
+				<div class="triangle" stl="border:5 solid transparent,border-left:5 solid #100f12,border-top':5 solid #100f12,right:0,bottom:-9"></div>
+
+			</div>
+
+		</div>
+
+		<div class="common-rate" stl="margin-top:20,margin-left:-55,width:110,height:21,background-size:auto 21">
+
+			<div class="rate" stl="background-size:auto 21" ng-style="{
+				width: (item.Rate / 5) * 100+'%'
+			}"></div>
+
+		</div>
+
+	</div>
+
+</div>

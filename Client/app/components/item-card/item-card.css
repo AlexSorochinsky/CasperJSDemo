@@ -1,0 +1,117 @@
+div.search-results .rate-item {
+
+}
+
+div.search-results .rate-item .item-content {
+	display: inline-block;
+	height: 350px;
+	width: 700px;
+	background-color: #213540;
+	margin-bottom: 30px;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+div.search-results .rate-item .item-content .title {
+	font-size: 21px;
+	color: #ffffff;
+	height: 70px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 20px;
+}
+
+div.search-results .rate-item .item-content .item-base {
+	position: relative;
+
+}
+
+div.search-results .rate-item .item-content .item-base .def_rates {
+	display: inline-block;
+	margin:auto;
+	float: left;
+	/*border: 1px solid red;*/
+	height: 210px;
+	width: 198px;
+	vertical-align: middle;
+}
+
+div.search-results .rate-item .item-content .item-base .picture {
+	display: inline-block;
+	background:url("../../../img/search/picture-border.png") center no-repeat;
+	background-size: contain;
+	margin:auto;
+	height: 210px;
+	width: 298px;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+}
+
+div.search-results .rate-item .item-content .item-base .prices {
+	position:absolute;
+	margin:auto;
+	float: left;
+	height: 210px;
+	width: 198px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 26px;
+	color: #100f13;
+	top: 0;
+	right: 1px;
+}
+
+div.search-results .rate-item .item-content .item-base .prices .diapazon {
+	color:#89d7ff;
+	text-align: left;
+}
+
+div.search-results .rate-item .item-picture{
+	background:url("https://pbs.twimg.com/profile_images/2256189804/_______.jpg") center no-repeat;
+	border-radius:105px;
+	background-size: contain;
+	position: absolute;
+	vertical-align: middle;
+	text-align: center;
+	margin:13px auto;
+	height: 184px;
+	width: 184px;
+}
+
+div.search-results .common-rate {
+	position: absolute;
+	vertical-align: middle;
+	background: url("../../../img/rate/stars-black.png");
+	width: 110px;
+	margin-top: 20px;
+	height: 21px;
+	left: 50%;
+}
+
+div.search-results .rate {
+	background: url("../../../img/rate/stars-blue.png");
+	width: 0;
+	height: 100%;
+}
+
+div.search-results .cost {
+	height: 33px;
+	width: 190px;
+	background-color:#89d7ff;
+	margin-left: 20px;
+	margin-right: -10px;
+	position: relative;
+}
+
+div.search-results .cost .triangle{
+	border: 5px solid transparent;
+	border-left: 5px solid #100f12;
+	border-top: 5px solid #100f12;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+

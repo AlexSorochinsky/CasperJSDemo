@@ -23,8 +23,6 @@ angular.module('bestrate').service('RatesSrv', ['$rootScope', function($rootScop
             return rate.Date;
         });
 
-        //$rootScope.RatesSrv.Rates.reverse();
-
     };
 
     this.setFilter = function(filter) {

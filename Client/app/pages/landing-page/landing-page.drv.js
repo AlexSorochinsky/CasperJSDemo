@@ -10,7 +10,7 @@ angular.module('bestrate').directive('landingPage', [function() {
 
         link: function(scope, el, attrs) {
 
-
+            App.resize();
 
         },
 
