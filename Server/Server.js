@@ -1,7 +1,7 @@
 "use strict";
 
 //Имя процесса, можно увидеть через команду top
-process.title = 'thebestrate';
+process.title = 'casper-js-demo-alex';
 
 var BR = global.BR = {
 
@@ -45,7 +45,7 @@ BR.Express.use(express_body_parser.json());
 //Подключаемся к базе данных
 
 BR.Mongoose = require('mongoose');
-BR.Mongoose.connect('mongodb://localhost/thebestrate');
+BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
 
 BR.Database = BR.Mongoose.connection;
 BR.Database.on('error', console.error.bind(console, 'connection error:'));
