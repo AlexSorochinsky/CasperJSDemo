@@ -128,7 +128,7 @@ BR.Database.once('open', function() {
 
 });
 
-BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
+BR.Mongoose.connect('mongodb://127.0.0.1/casper-js-demo-alex');
 
 BR.SendToConnection = function(connection_data, data) {
 
