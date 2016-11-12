@@ -58,6 +58,10 @@ BR.Database.on('close', function() {
 
 });
 
+BR.Database.on('connected', function () {
+    console.log('Mongoose default connection open to ');
+});
+
 BR.Database.on('open', function() {
 
     console.log(5);
