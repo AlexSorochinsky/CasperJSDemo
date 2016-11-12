@@ -45,20 +45,23 @@ BR.Express.use(express_body_parser.json());
 //Подключаемся к базе данных
 
 BR.Mongoose = require('mongoose');
-console.log(1);
-BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex', function(err) {
 
-    console.log(7, err);
+console.log(1);
+
+BR.Database = BR.Mongoose.connection;
+
+BR.Database.on('error', console.error.bind(console, 'connection error:'));
+
+BR.Database.on('close', function() {
+
+    console.log(2);
 
 });
-console.log(2);
-BR.Database = BR.Mongoose.connection;
-console.log(3);
-BR.Database.on('error', console.error.bind(console, 'connection error:'));
-console.log(4);
-//BR.Database.on('open', function() {
+
+BR.Database.on('open', function() {
 
     console.log(5);
+
     BR.Logger.debug('Connection to database established');
 
     //Подключаем модели данных
@@ -135,9 +138,9 @@ console.log(4);
 
     }, this);
 
-//});
+});
 
-console.log(6);
+BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
 
 BR.SendToConnection = function(connection_data, data) {
 
