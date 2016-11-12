@@ -46,31 +46,19 @@ BR.Express.use(express_body_parser.json());
 
 BR.Mongoose = require('mongoose');
 
-console.log(1);
-
 BR.Database = BR.Mongoose.connection;
 
 BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
 
 BR.Database.on('error', console.error.bind(console, 'connection error:'));
 
-BR.Database.on('close', function() {
-
-    console.log(2);
-
-});
-
-BR.Database.on('connected', function () {
-    console.log('Mongoose default connection open to ');
-});
-
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/casper-js-demo-alex", function(err, db) {
 
-    console.log(5);
+    BR.Mongo = db;
 
     BR.Logger.debug('Connection to database established');
 
@@ -146,13 +134,7 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
 
         });
 
-    }, this);
-
-
-});
-
-BR.Database.on('open', function() {
-
+    }, {index: 'server'});
 
 });
 

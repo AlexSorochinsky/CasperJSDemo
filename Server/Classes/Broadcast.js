@@ -69,7 +69,7 @@ var Broadcast = {
 
 				} else {
 
-					console.warn('Broadcast.on: you need specify source of event subscriber or options.index (key of subscribe function)');
+					console.warn('Broadcast.on: you need specify source of event subscriber or options.index (key of subscribe function)', event_name);
 
 				}
 

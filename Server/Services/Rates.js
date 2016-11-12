@@ -35,6 +35,8 @@ BR.Rates = new Service({
 
         'Database Ready': function() {
 
+            this.Collection = BR.Mongo.collection('rates');
+
             BR.Cache.create(this.Name, function(ready) {
 
                 BR.Rates.updateTopRatesCache(function() {
@@ -48,8 +50,6 @@ BR.Rates = new Service({
         },
 
         'User Connected': function(connection_data) {
-
-            console.log('333', this.TopRates);
 
             BR.SendToConnection(connection_data, {
                 Rates: this.TopRates
@@ -71,8 +71,6 @@ BR.Rates = new Service({
 
         '/Rates/add': function(req, res, next) {
 
-            //console.log('444444444', req.body);
-
             next({});
 
             this.processNewRates(req.body.Source, req.body.Rates);
@@ -85,11 +83,7 @@ BR.Rates = new Service({
 
         getRates: function(connection_data, data) {
 
-            //console.log('11111', data);
-
             this.getRates(data.Filter, function(rates) {
-
-                console.log('11111', data, rates);
 
                 BR.SendToConnection(connection_data, {
                     Rates: rates
@@ -131,7 +125,7 @@ BR.Rates = new Service({
         }, this);
 
         //Ищем отзывы по этим хэшам в базе
-        BR.Rates.Model.find({Hash: {$in: hashes}}, 'Hash', {}, function(err, exist_hashes) {
+        BR.Rates.Collection.find({Hash: {$in: hashes}}, {Hash: true}, {}).toArray(function(err, exist_hashes) {
 
             exist_hashes = _.pluck(exist_hashes, 'Hash');
 
@@ -142,18 +136,15 @@ BR.Rates = new Service({
                 //Если отзыва с таким хэшем нет в базе
                 if (!_.contains(exist_hashes, rate_data.hash)) {
 
-                    //Создаём объект документа для вставки в БД
-                    var rate = new BR.Rates.Model({
+                    //Сохраняем в БД
+                    BR.Rates.Collection.insert({
                         Hash: rate_data.hash,
                         Title: rate_data.title,
                         Image: rate_data.image,
                         Cost: rate_data.cost,
                         Rate: rate_data.rate,
                         Date: rate_data.date
-                    });
-
-                    //Сохраняем в БД
-                    rate.save(function() {
+                    }, function(err, rate) {
 
                         BR.Logger.debug('Добавлен новый отзыв', rate);
 
@@ -183,7 +174,9 @@ BR.Rates = new Service({
 
     getTopRates: function(next) {
 
-        BR.Rates.Model.find({}, 'Title Image Rate Cost Date', {sort: {Date: -1}, limit: 25}, function(err, result) {
+        BR.Rates.Collection.find({}, {Title:true, Image: true, Rate: true, Cost: true, Date: true}, {sort: {Date: -1}, limit: 25}).toArray(function(err, result) {
+
+            console.log(result);
 
             next(result);
 
@@ -197,10 +190,10 @@ BR.Rates = new Service({
 
             var regexp = new RegExp(filter);
 
-            BR.Rates.Model.find({Title: regexp}, 'Title Image Rate Cost Date', {
+            BR.Rates.Collection.find({Title: regexp}, {Title: true, Image: true, Rate: true, Cost: true, Date: true}, {
                 sort: {Date: 1},
                 limit: 10
-            }, function (err, result) {
+            }).toArray(function (err, result) {
 
                 next(result);
 
