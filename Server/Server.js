@@ -45,7 +45,6 @@ BR.Express.use(express_body_parser.json());
 //Подключаемся к базе данных
 
 BR.Mongoose = require('mongoose');
-BR.Mongoose.connect('mongodb://localhost/casperjsdemoalex');
 
 BR.Database = BR.Mongoose.connection;
 BR.Database.on('error', console.error.bind(console, 'connection error:'));
@@ -128,6 +127,8 @@ BR.Database.once('open', function() {
     }, this);
 
 });
+
+BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
 
 BR.SendToConnection = function(connection_data, data) {
 
