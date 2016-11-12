@@ -183,7 +183,7 @@ BR.Rates = new Service({
 
     getTopRates: function(next) {
 
-        BR.Rates.Model.find({}, 'Title Image Rate Cost Date', {sort: {Date: 1}, limit: 25}, function(err, result) {
+        BR.Rates.Model.find({}, 'Title Image Rate Cost Date', {sort: {Date: -1}, limit: 25}, function(err, result) {
 
             next(result);
 
