@@ -50,6 +50,8 @@ console.log(1);
 
 BR.Database = BR.Mongoose.connection;
 
+BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
+
 BR.Database.on('error', console.error.bind(console, 'connection error:'));
 
 BR.Database.on('close', function() {
@@ -67,15 +69,6 @@ var MongoClient = require('mongodb').MongoClient;
 
 // Connect to the db
 MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
-    if(!err) {
-        console.log("We are connected");
-    } else {
-        console.log('22222222222', err)
-
-    }
-});
-
-BR.Database.on('open', function() {
 
     console.log(5);
 
@@ -155,9 +148,13 @@ BR.Database.on('open', function() {
 
     }, this);
 
+
 });
 
-BR.Mongoose.connect('mongodb://localhost/casper-js-demo-alex');
+BR.Database.on('open', function() {
+
+
+});
 
 BR.SendToConnection = function(connection_data, data) {
 
