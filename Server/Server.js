@@ -56,7 +56,7 @@ BR.Database = BR.Mongoose.connection;
 console.log(3);
 BR.Database.on('error', console.error.bind(console, 'connection error:'));
 console.log(4);
-BR.Database.on('open', function() {
+//BR.Database.on('open', function() {
 
     console.log(5);
     BR.Logger.debug('Connection to database established');
@@ -135,7 +135,7 @@ BR.Database.on('open', function() {
 
     }, this);
 
-});
+//});
 
 console.log(6);
 
