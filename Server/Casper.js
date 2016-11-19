@@ -11,7 +11,7 @@ BR.Casper = require('casper').create({
 
 BR.Casper.options.viewportSize = {width: 1920, height: 1080};
 
-BR.Casper.options.timeout = 100000;
+//BR.Casper.options.timeout = 100000;
 BR.Casper.options.retryTimeout = 100000;
 BR.Casper.options.waitTimeout = 100000;
 
