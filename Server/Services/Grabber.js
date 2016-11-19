@@ -94,7 +94,7 @@ BR.Grabber = new Service({
 
             this.Query.splice(0, 1);
 
-            BR.Grabber.openPage(item.url, 'h1#itemTitle', {loadImages: false}, function () {
+            BR.Grabber.openPage(item.url, 'img#gh-logo', {loadImages: false}, function () {
 
                 console.log('aaa 1');
 
@@ -102,7 +102,7 @@ BR.Grabber = new Service({
 
                     var item = {};
 
-                    item.title = document.querySelector('h1#itemTitle').innerText;
+                    item.title = document.querySelectorAll('h1.it-ttl').length;
 
                     item.rate = document.querySelectorAll('span.vi-core-prdReviewCntr i.fullStar').length;
 
@@ -171,8 +171,8 @@ BR.Grabber = new Service({
                     return {
                         //body: document.body.innerHTML,
                         test: document.querySelectorAll('div').length,
-                        result: document.querySelectorAll('div').length > 10
-                        //result: document.querySelectorAll(selector).length > 0
+                        //result: document.querySelectorAll('div').length > 10
+                        result: document.querySelectorAll(selector).length > 0
                     };
                 }, {
                     selector: selector
