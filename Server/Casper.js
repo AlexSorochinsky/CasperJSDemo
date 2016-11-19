@@ -13,7 +13,7 @@ BR.Casper.options.viewportSize = {width: 1920, height: 1080};
 
 //BR.Casper.options.timeout = 100000;
 //BR.Casper.options.retryTimeout = 100000;
-BR.Casper.options.waitTimeout = 1000000;
+//BR.Casper.options.waitTimeout = 1000000;
 
 console.log('BR.Casper.options', JSON.stringify(BR.Casper.options));
 

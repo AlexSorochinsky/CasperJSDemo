@@ -46,7 +46,7 @@ BR.Grabber = new Service({
 
     startGrabbing: function () {
 
-        BR.Grabber.openPage('http://ebay.com', 'div#dailyDeals', {}, function () {
+        BR.Grabber.openPage('http://ebay.com', '.ddcrd.daily-deal', {}, function () {
 
             var result = this.evaluate(function () {
 
