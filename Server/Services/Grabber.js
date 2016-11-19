@@ -74,7 +74,7 @@ BR.Grabber = new Service({
 
             });
 
-            console.log('222222222222', result);
+            console.log('222222222222', JSON.stringify(result));
 
             BR.Grabber.Query = result || [];
 
@@ -114,7 +114,7 @@ BR.Grabber = new Service({
 
                 result.cost = item.cost;
 
-                console.log('11111111111', result);
+                console.log('11111111111', JSON.stringify(result));
 
                 BR.Grabber.Data.push(result);
 
