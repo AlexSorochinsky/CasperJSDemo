@@ -165,7 +165,8 @@ BR.Grabber = new Service({
 
                 var data = this.evaluate(function (selector) {
                     return {
-                        body: document.body.innerHTML,
+                        //body: document.body.innerHTML,
+                        test: document.querySelectorAll('div').length,
                         result: document.querySelectorAll(selector).length > 0
                     };
                 }, {
