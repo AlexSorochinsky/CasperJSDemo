@@ -161,10 +161,10 @@ BR.Grabber = new Service({
 
             BR.Casper.waitFor(function () {
 
-                console.log('wait ');
+                //console.log('wait ');
 
                 return this.evaluate(function (selector) {
-                    return document.querySelectorAll(selector).length > 24;
+                    return document.querySelectorAll(selector).length > 0;
                 }, {
                     selector: selector
                 });
