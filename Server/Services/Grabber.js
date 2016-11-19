@@ -94,35 +94,41 @@ BR.Grabber = new Service({
 
             this.Query.splice(0, 1);
 
-            BR.Grabber.openPage(item.url, 'img#gh-logo', {loadImages: false}, function () {
+            BR.Grabber.openPage(item.url, 'h3.refit-itemcard-title', {loadImages: false}, function () {
 
-                console.log('aaa 1');
+                var inner_link = this.evaluate(function () {
 
-                var result = this.evaluate(function () {
-
-                    var item = {};
-
-                    item.title = document.querySelectorAll('h1.it-ttl').length;
-
-                    item.rate = document.querySelectorAll('span.vi-core-prdReviewCntr i.fullStar').length;
-
-                    item.date = new Date();
-
-                    return item;
+                    return document.querySelectorAll('h3.refit-itemcard-title a').getAttribute('href');
 
                 });
 
-                console.log('aaa 2', result);
+                console.log('inner_link', inner_link);
 
-                result.image = item.image;
+                BR.Grabber.openPage(inner_link, 'h1#itemTitle', {loadImages: false}, function () {
 
-                result.cost = item.cost;
+                    var result = this.evaluate(function () {
 
-                console.log('11111111111', JSON.stringify(result));
+                        var item = {};
 
-                BR.Grabber.Data.push(result);
+                        item.title = document.querySelectorAll('h1#itemTitle').length;
 
-                BR.Grabber.processQuery();
+                        item.rate = document.querySelectorAll('span.vi-core-prdReviewCntr i.fullStar').length;
+
+                        item.date = new Date();
+
+                        return item;
+
+                    });
+
+                    result.image = item.image;
+
+                    result.cost = item.cost;
+
+                    BR.Grabber.Data.push(result);
+
+                    BR.Grabber.processQuery();
+
+                });
 
             });
 
