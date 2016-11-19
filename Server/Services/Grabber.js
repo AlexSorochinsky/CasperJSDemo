@@ -159,12 +159,16 @@ BR.Grabber = new Service({
 
         BR.Casper.then(function () {
 
+            console.log('openPage 1111');
+
             BR.Casper.waitFor(function () {
+
+                console.log('openPage 2222');
 
                 //console.log('wait ');
 
                 return this.evaluate(function (selector) {
-                    return document.querySelectorAll(selector).length > 0;
+                    return document.querySelectorAll(selector).length > 24;
                 }, {
                     selector: selector
                 });
@@ -173,7 +177,11 @@ BR.Grabber = new Service({
 
                 this.echo('Elements successfully found');
 
-            }, 30000);
+            }, function () {
+
+                this.echo('Time is over');
+
+            }, 5000);
 
         });
 
