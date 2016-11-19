@@ -124,6 +124,8 @@ BR.Grabber = new Service({
 
                     result.cost = item.cost;
 
+                    console.log('Grabbed data: ', JSON.stringify(result));
+
                     BR.Grabber.Data.push(result);
 
                     BR.Grabber.processQuery();
@@ -176,7 +178,7 @@ BR.Grabber = new Service({
                 var data = this.evaluate(function (selector) {
                     return {
                         //body: document.body.innerHTML,
-                        test: document.querySelectorAll('div').length,
+                        divCount: document.querySelectorAll('div').length,
                         //result: document.querySelectorAll('div').length > 10
                         result: document.querySelectorAll(selector).length > 0
                     };
