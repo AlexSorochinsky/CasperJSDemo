@@ -162,7 +162,7 @@ BR.Grabber = new Service({
                 console.log('wait');
 
                 return this.evaluate(function (selector) {
-                    return document.querySelectorAll(selector).length > 0;
+                    return document.querySelectorAll(selector).length > 24;
                 }, {
                     selector: selector
                 });
