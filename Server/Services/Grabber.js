@@ -159,19 +159,19 @@ BR.Grabber = new Service({
 
         BR.Casper.then(function () {
 
-            console.log('openPage 1111');
-
             BR.Casper.waitFor(function () {
-
-                console.log('openPage 2222');
 
                 //console.log('wait ');
 
-                return this.evaluate(function (selector) {
-                    return document.querySelectorAll(selector).length > 0;
+                var data = this.evaluate(function (selector) {
+                    return document.querySelectorAll(selector).length;
                 }, {
                     selector: selector
                 });
+
+                console.log('waitFor result', data);
+
+                return data;
 
             }, function () {
 
