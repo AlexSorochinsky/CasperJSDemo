@@ -110,7 +110,7 @@ BR.Grabber = new Service({
 
                         var item = {};
 
-                        item.title = document.querySelectorAll('h1#itemTitle').length;
+                        item.title = document.querySelector('h1#itemTitle').innerText;
 
                         item.rate = document.querySelectorAll('span.vi-core-prdReviewCntr i.fullStar').length;
 
