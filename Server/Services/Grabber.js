@@ -98,7 +98,7 @@ BR.Grabber = new Service({
 
                 var inner_link = this.evaluate(function () {
 
-                    return document.querySelectorAll('h3.refit-itemcard-title a').getAttribute('href');
+                    return document.querySelector('h3.refit-itemcard-title a').getAttribute('href');
 
                 });
 
