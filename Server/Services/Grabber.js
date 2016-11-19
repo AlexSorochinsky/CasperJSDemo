@@ -96,6 +96,8 @@ BR.Grabber = new Service({
 
             BR.Grabber.openPage(item.url, 'h1#itemTitle', {loadImages: false}, function () {
 
+                console.log('aaa 1');
+
                 var result = this.evaluate(function () {
 
                     var item = {};
@@ -109,6 +111,8 @@ BR.Grabber = new Service({
                     return item;
 
                 });
+
+                console.log('aaa 2', result);
 
                 result.image = item.image;
 
@@ -191,6 +195,8 @@ BR.Grabber = new Service({
         });
 
         BR.Casper.run(function () {
+
+            this.echo('BR.Casper.run');
 
             next.apply(this, []);
 
