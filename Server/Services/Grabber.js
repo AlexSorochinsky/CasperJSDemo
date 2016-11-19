@@ -112,6 +112,8 @@ BR.Grabber = new Service({
 
                 result.cost = item.cost;
 
+                console.log('11111111111', result);
+
                 BR.Grabber.Data.push(result);
 
                 BR.Grabber.processQuery();
