@@ -25,7 +25,7 @@ BR.Grabber = new Service({
     runCasperjsProcess: function () {
 
         var spawn = require('child_process').spawn;
-        var prc = spawn('casperjs', ['Casper.js']);
+        var prc = spawn('casperjs', ['Server/Casper.js']);
 
         prc.stdout.setEncoding('utf8');
         prc.stdout.on('data', function (data) {

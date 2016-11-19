@@ -1,0 +1,68 @@
+Запуск сервера:
+
+1) запустить MongoDb сервис (в командной строке в любом месте)
+
+   для Windows: mongod --dbpath C:/mongo
+
+   для Linux: не нужно
+
+2) запустить процесс ноды (в командной строке находясь в корневой папке проекта):
+
+   node Server/Server.js
+
+=========================================
+
+Запуск вручную граббера:
+
+casperjs Server/Casper.js
+
+=========================================
+
+Смена кодировки командной строки на UTF8 в Windows:
+
+chcp 65001
+
+
+=========================================
+
+Освободить порт (нужно при ошибке EADDRINUSE)
+
+fuser -k 3000/tcp
+
+=========================================
+
+
+Установить PhantomJS на Debian
+10 марта 2016 graff
+
+Куча инфы есть о том как ставить phantomjs, решил и для себя заметку сделать — в целом ничего особенного ))
+
+Обновляем систему и ставим зависимости:
+sudo apt-get update
+sudo apt-get install build-essential chrpath libssl-dev libxft-dev
+
+После этого ставим пакеты необходимые для корректной работы phantomjs:
+
+sudo apt-get install libfreetype6 libfreetype6-dev
+sudo apt-get install libfontconfig1 libfontconfig1-dev
+
+Для установки версии 2.1.1 делаем следующее:
+
+cd ~
+export PHANTOM_JS="phantomjs-2.1.1-linux-x86_64"
+wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
+sudo tar xvjf $PHANTOM_JS.tar.bz2
+
+После распаковки архива переносим либы и линкуем бинарник:
+
+sudo mv $PHANTOM_JS /usr/local/share
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+
+После этого проверяем что система видит бинарник и версия нужная нам:
+
+root@ca062:~# phantomjs --version
+2.1.1
+
+Собственно и все. Проверено на базе «Debian GNU/Linux 7»
+
+
