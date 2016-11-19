@@ -74,6 +74,8 @@ BR.Grabber = new Service({
 
             });
 
+            console.log('222222222222', result);
+
             BR.Grabber.Query = result || [];
 
             BR.Grabber.processQuery();
@@ -159,7 +161,7 @@ BR.Grabber = new Service({
 
             BR.Casper.waitFor(function () {
 
-                console.log('wait');
+                console.log('wait ');
 
                 return this.evaluate(function (selector) {
                     return document.querySelectorAll(selector).length > 24;
