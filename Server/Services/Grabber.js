@@ -172,7 +172,7 @@ BR.Grabber = new Service({
                     selector: selector
                 });
 
-                console.log('waitFor result', data);
+                console.log('waitFor result', JSON.stringify(data));
 
                 return data.result;
 
