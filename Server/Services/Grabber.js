@@ -164,14 +164,17 @@ BR.Grabber = new Service({
                 //console.log('wait ');
 
                 var data = this.evaluate(function (selector) {
-                    return document.querySelectorAll(selector).length;
+                    return {
+                        body: document.body.innerHTML,
+                        result: document.querySelectorAll(selector).length > 0
+                    };
                 }, {
                     selector: selector
                 });
 
                 console.log('waitFor result', data);
 
-                return data;
+                return data.result;
 
             }, function () {
 
